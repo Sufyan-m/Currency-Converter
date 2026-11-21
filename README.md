@@ -3,7 +3,26 @@
 # 💱 Live Currency Converter
 ### 🌍 Real-Time Exchange Rates for 160+ Countries | ⚡ Built with Python
 
-**A fast, simple tool that converts money between 160+ countries using live market rates!**
+<p>
+  <b>A fast, zero-config command-line tool that converts money between 160+ countries using live market rates!</b>
+</p>
+
+<!-- Native GitHub Repo Badges (Never Break!) -->
+<p>
+  <img src="https://shields.io" alt="Repo Size" />
+  <img src="https://shields.io" alt="Last Commit" />
+  <img src="https://shields.io" alt="Stars" />
+</p>
+
+<!-- Clickable Quick Navigation -->
+<p>
+  <a href="#-what-does-this-project-do-for-everyone">📌 Overview</a> •
+  <a href="#-how-it-looks-when-you-run-it">💻 Demo</a> •
+  <a href="#-how-to-run-this-even-if-you-are-non-tech">🚀 Quick Start</a> •
+  <a href="#-20-popular-currency-codes-you-can-use">🌐 Currencies</a> •
+  <a href="#-how-it-works-behind-the-scenes">⚙️ Architecture</a> •
+  <a href="#-troubleshooting--faq">🛠️ FAQ</a>
+</p>
 
 </div>
 
@@ -15,10 +34,10 @@ Ever wondered how much **100 USD** is in **Pakistani Rupees (PKR)** or **Indian 
 Instead of searching on Google every single time, this tool connects directly to a live financial server on the internet, grabs today's exact exchange rate, and calculates your converted amount in less than a second!
 
 ### ✨ Why Use This?
-- 🌍 **Live Market Rates:** Always fetches fresh, real-time rates (no outdated numbers!).
+- 🌍 **Live Market Rates:** Always fetches fresh, real-time rates from [ExchangeRate-API](https://www.exchangerate-api.com) (no outdated numbers!).
 - 💱 **160+ Currencies Supported:** Works with almost every country in the world.
-- 🔑 **No Sign-Up or API Key Needed:** Works instantly out of the box.
-- 🧠 **Beginner & User Friendly:** Clean, fast, and super easy to use.
+- 🔑 **No Sign-Up or API Key Needed:** Works instantly out of the box—no accounts or tokens required.
+- 🧠 **Beginner & User Friendly:** Clean, fast, and super easy to use for both coders and non-tech users.
 
 ---
 
@@ -44,12 +63,12 @@ Converted amount: 91.07 EUR
 
 You don't need to be a programmer to use this tool. Just follow these **3 simple steps**:
 
-### Step 1: Install Python (One-Time Setup)
+### Step 1: Install Python *(One-Time Setup)*
 1. Go to [python.org/downloads](https://python.org) and download **Python**.
 2. Open the installer and **IMPORTANT:** Check the box that says **"Add Python to PATH"** at the bottom, then click **Install Now**.
 
 ### Step 2: Download This Project
-* **Easy Way (No Coding):** Click the green **`<> Code`** button at the top of this page -> click **`Download ZIP`** -> extract the folder on your PC.
+* **Easy Way (No Coding):** Click the green **`<> Code`** button at the top of this page ➔ click **`Download ZIP`** ➔ extract the folder on your PC.
 * **Developer Way (Git):**
   ```bash
   git clone https://github.com
@@ -84,18 +103,78 @@ Type any of these **3-letter codes** when the program asks `Convert from` or `Co
 | 🇨🇳 **China** | `CNY` | 🇨🇭 **Switzerland** | `CHF` |
 | 🇿🇦 **South Africa** | `ZAR` | 🇳🇵 **Nepal** | `NPR` |
 
-> 💡 **Tip:** Over **140+ more currency codes** (like `QAR`, `OMR`, `KWD`, `RUB`) also work automatically!
+<details>
+<summary><b>➕ Click to expand more supported currency codes (Gulf, Europe & More)</b></summary>
+<br/>
+
+- 🇶🇦 **Qatar:** `QAR` (Qatari Riyal)
+- 🇴🇲 **Oman:** `OMR` (Omani Rial)
+- 🇰🇼 **Kuwait:** `KWD` (Kuwaiti Dinar)
+- 🇧🇭 **Bahrain:** `BHD` (Bahraini Dinar)
+- 🇷🇺 **Russia:** `RUB` (Russian Ruble)
+- 🇸🇪 **Sweden:** `SEK` (Swedish Krona)
+- 🇳🇴 **Norway:** `NOK` (Norwegian Krone)
+- 🇳🇿 **New Zealand:** `NZD` (New Zealand Dollar)
+
+> 💡 **Note:** Over **140+ additional ISO 4217 currency codes** also work automatically!
+
+</details>
 
 ---
 
 ## ⚙️ How It Works Behind the Scenes
-1. Takes your input (`from_currency`, `to_currency`, and `amount`).
-2. Sends a live request to [ExchangeRate-API](https://exchangerate-api.com).
-3. Reads the **JSON** data returned by the server.
-4. Multiplies your amount by today's exact rate and displays the result.
+
+```text
+┌───────────────────┐      HTTP GET Request       ┌──────────────────────────┐
+│   User Terminal   │ ──────────────────────────► │   ExchangeRate-API       │
+│ (PKR ➔ INR, 100)  │                             │   (v6/latest/PKR)        │
+└───────────────────┘                             └──────────────────────────┘
+         ▲                                                      │
+         │                                                      │ Live JSON Data
+         │                                                      ▼
+┌───────────────────┐     Calculate & Round       ┌──────────────────────────┐
+│  Formatted Output │ ◄────────────────────────── │   Python JSON Parser     │
+│   (33.76 INR)     │       (amount * rate)       │   data["rates"]["INR"]   │
+└───────────────────┘                             └──────────────────────────┘
+```
+
+1. **User Input:** Captures `from_currency`, `to_currency`, and `amount` (automatically converting text to uppercase).
+2. **API Request:** Sends a live HTTP `GET` request to [ExchangeRate-API](https://www.exchangerate-api.com).
+3. **JSON Parsing:** Converts the server response into a Python dictionary and extracts the exact exchange rate.
+4. **Calculation:** Multiplies the entered amount by the live rate and formats the output to 2 decimal places.
+
+---
+
+## 🛠️ Troubleshooting & FAQ
+
+<details>
+<summary><b>❓ Error: <code>ModuleNotFoundError: No module named 'requests'</code></b></summary>
+<br/>
+Your Python environment doesn't have the <code>requests</code> library installed yet. Run <code>pip install requests</code> in your terminal first, then run <code>python main.py</code> again.
+</details>
+
+<details>
+<summary><b>❓ Error: <code>KeyError</code> after entering a currency code</b></summary>
+<br/>
+Make sure you enter a valid <b>3-letter currency code</b> (such as <code>USD</code>, <code>PKR</code>, or <code>EUR</code>) without extra spaces, and check that you are connected to the internet.
+</details>
+
+<details>
+<summary><b>❓ Do I need to pay or create an account for the API?</b></summary>
+<br/>
+No! This project uses the open-access endpoint of ExchangeRate-API, which requires zero sign-ups or API keys.
+</details>
+
+---
+
+## 🔮 Future Improvements
+- [ ] Add `try-except` error handling for invalid currency codes or offline mode
+- [ ] Add a `while True` loop so users can convert multiple amounts without restarting
+- [ ] Create a graphical desktop version (GUI) using `Tkinter` / `CustomTkinter`
 
 ---
 
 <div align="center">
   <p>Made with ❤️ by <a href="https://github.com"><b>Sufyan-m</b></a></p>
+  <p>⭐ <i>Like this project? Give it a star on GitHub!</i></p>
 </div>
