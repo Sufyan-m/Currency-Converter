@@ -1,19 +1,9 @@
 <div align="center">
 
-<!-- Animated Typing Header -->
-<img src="https://demolab.com💱+Live+Currency+Converter;🌍+160%2B+Global+Currencies+Supported;⚡+Powered+by+Python+%26+REST+API" alt="Typing SVG" />
+# 💱 Live Currency Converter
+### 🌍 Real-Time Exchange Rates for 160+ Countries | ⚡ Built with Python
 
-<br/>
-
-<!-- Tech Badges -->
-![Python](https://shields.io)
-![REST API](https://shields.io)
-![Status](https://shields.io)
-![Made By](https://shields.io)
-
-<p>
-  <b>A fast, lightweight command-line tool that converts money between 160+ countries using real-time exchange rates!</b>
-</p>
+**A fast, simple tool that converts money between 160+ countries using live market rates!**
 
 </div>
 
@@ -22,17 +12,17 @@
 ## 🤔 What Does This Project Do? (For Everyone!)
 
 Ever wondered how much **100 USD** is in **Pakistani Rupees (PKR)** or **Indian Rupees (INR)** right now?  
-Instead of opening Google every time, this tool connects directly to a live financial server on the internet, grabs today's exact exchange rate, and calculates your converted amount in less than a second!
+Instead of searching on Google every single time, this tool connects directly to a live financial server on the internet, grabs today's exact exchange rate, and calculates your converted amount in less than a second!
 
-### ✨ Key Features
-- 🌍 **Real-Time Rates:** Fetches live market exchange rates (no outdated numbers!).
-- 💱 **160+ Currencies:** Supports `USD`, `PKR`, `INR`, `EUR`, `GBP`, `AED`, `SAR`, `JPY`, and many more.
-- ⚡ **Zero API Key Needed:** Works straight out of the box without complicated sign-ups.
-- 🧠 **Clean & Simple:** Built with pure Python logic and beginner-friendly code.
+### ✨ Why Use This?
+- 🌍 **Live Market Rates:** Always fetches fresh, real-time rates (no outdated numbers!).
+- 💱 **160+ Currencies Supported:** Works with almost every country in the world.
+- 🔑 **No Sign-Up or API Key Needed:** Works instantly out of the box.
+- 🧠 **Beginner & User Friendly:** Clean, fast, and super easy to use.
 
 ---
 
-## 💻 How It Looks in Action
+## 💻 How It Looks When You Run It
 
 ```text
 Convert from  : PKR
@@ -50,55 +40,62 @@ Converted amount: 91.07 EUR
 
 ---
 
-## 🚀 How to Run This on Your PC (Step-by-Step)
+## 🧑‍💻 How to Run This (Even If You Are Non-Tech!)
 
-Even if you are new to coding, you can run this in **3 easy steps**:
+You don't need to be a programmer to use this tool. Just follow these **3 simple steps**:
 
-### 1️⃣ Install Python
-Make sure you have **Python** installed on your computer. You can download it from [python.org](https://python.org).
+### Step 1: Install Python (One-Time Setup)
+1. Go to [python.org/downloads](https://python.org) and download **Python**.
+2. Open the installer and **IMPORTANT:** Check the box that says **"Add Python to PATH"** at the bottom, then click **Install Now**.
 
-### 2️⃣ Download This Project & Install Required Tool
-Open your terminal or command prompt and run:
+### Step 2: Download This Project
+* **Easy Way (No Coding):** Click the green **`<> Code`** button at the top of this page -> click **`Download ZIP`** -> extract the folder on your PC.
+* **Developer Way (Git):**
+  ```bash
+  git clone https://github.com
+  cd Currency-Converter
+  ```
 
-```bash
-git clone https://github.com
-cd YOUR_REPO_NAME
-pip install requests
-```
-
-### 3️⃣ Start Converting!
-Run the script with:
-
-```bash
-python main.py
-```
-
----
-
-## 🌐 Popular Currency Codes You Can Try
-
-| Country / Region | Currency Name | Code to Type |
-| :--- | :--- | :---: |
-| 🇵🇰 Pakistan | Pakistani Rupee | `PKR` |
-| 🇮🇳 India | Indian Rupee | `INR` |
-| 🇺🇸 United States | US Dollar | `USD` |
-| 🇪🇺 European Union | Euro | `EUR` |
-| 🇬🇧 United Kingdom | British Pound | `GBP` |
-| 🇦🇪 UAE | UAE Dirham | `AED` |
-| 🇸🇦 Saudi Arabia | Saudi Riyal | `SAR` |
-| 🇯🇵 Japan | Japanese Yen | `JPY` |
+### Step 3: Run the Converter
+1. Open the extracted folder, click the top address bar, type **`cmd`**, and press **Enter**.
+2. Type these two commands one by one:
+   ```bash
+   pip install requests
+   python main.py
+   ```
+3. Type your currency code (like `PKR`), target currency (like `USD`), and amount—done! 🎉
 
 ---
 
-## 🛠️ How It Works Behind the Scenes
-1. Takes user input (`from_currency`, `to_currency`, and `amount`).
-2. Sends a live HTTP `GET` request to [ExchangeRate-API](https://exchangerate-api.com).
-3. Parses the incoming **JSON** response into a Python dictionary.
-4. Multiplies the entered amount by the live rate and prints a clean, 2-decimal result.
+## 🌐 20 Popular Currency Codes You Can Use
+
+Type any of these **3-letter codes** when the program asks `Convert from` or `Convert to`:
+
+| Country / Region | Currency Code | Country / Region | Currency Code |
+| :--- | :---: | :--- | :---: |
+| 🇵🇰 **Pakistan** | `PKR` | 🇨🇦 **Canada** | `CAD` |
+| 🇮🇳 **India** | `INR` | 🇦🇺 **Australia** | `AUD` |
+| 🇺🇸 **USA** | `USD` | 🇹🇷 **Turkey** | `TRY` |
+| 🇬🇧 **UK** | `GBP` | 🇧🇩 **Bangladesh** | `BDT` |
+| 🇪🇺 **Europe** | `EUR` | 🇱🇰 **Sri Lanka** | `LKR` |
+| 🇦🇪 **UAE** | `AED` | 🇲🇾 **Malaysia** | `MYR` |
+| 🇸🇦 **Saudi Arabia** | `SAR` | 🇸🇬 **Singapore** | `SGD` |
+| 🇯🇵 **Japan** | `JPY` | 🇰🇷 **South Korea** | `KRW` |
+| 🇨🇳 **China** | `CNY` | 🇨🇭 **Switzerland** | `CHF` |
+| 🇿🇦 **South Africa** | `ZAR` | 🇳🇵 **Nepal** | `NPR` |
+
+> 💡 **Tip:** Over **140+ more currency codes** (like `QAR`, `OMR`, `KWD`, `RUB`) also work automatically!
+
+---
+
+## ⚙️ How It Works Behind the Scenes
+1. Takes your input (`from_currency`, `to_currency`, and `amount`).
+2. Sends a live request to [ExchangeRate-API](https://exchangerate-api.com).
+3. Reads the **JSON** data returned by the server.
+4. Multiplies your amount by today's exact rate and displays the result.
 
 ---
 
 <div align="center">
-  <img src="https://vercel.app" width="100%"/>
-  <p>Built with ❤️ and curiosity by <a href="https://github.com"><b>Sufyan-m</b></a></p>
+  <p>Made with ❤️ by <a href="https://github.com"><b>Sufyan-m</b></a></p>
 </div>
